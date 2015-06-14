@@ -27,18 +27,18 @@ bool WorldLayer::init()
     Vec2 leftPos(.5f * _pmPlayer->getBoundingBox().size.width, _pmPlayer->getPositionY());
     
     CCLOG("visibleSize.width: %f, visibleSize.height: %f", visibleSize.width, visibleSize.height);
-    //CCLog("origin.x: %f, origin.y: %f", origin.x, origin.y);
-    //CCLog("_pmPlayer->getBoundingBox().size.width: %f", _pmPlayer->getBoundingBox().size.width);
-    //CCLog("rightPos.x: %f, rightPos.y: %f", rightPos.x, rightPos.y);
+    CCLOG("origin.x: %f, origin.y: %f", origin.x, origin.y);
+    CCLOG("_pmPlayer->getBoundingBox().size.width: %f", _pmPlayer->getBoundingBox().size.width);
+    CCLOG("rightPos.x: %f, rightPos.y: %f", rightPos.x, rightPos.y);
     
-        
-    auto moveToRight = MoveTo::create(1.5f, rightPos);
+    auto moveRight = MoveBy::create(1.5f, Vec2(200.f, 0.f));
+    //auto moveToRight = MoveTo::create(1.5f, rightPos);    // MoveTo does not support reverse in V3.6
     //auto moveToLeft = MoveTo::create(1.5f, leftPos);
     auto flipX = FlipX::create(false);
-    auto repeatActions = RepeatForever::create(Sequence::create(flipX, moveToRight, flipX->reverse(), moveToRight->reverse(), NULL));
+    auto repeatActions = RepeatForever::create(Sequence::create(flipX, moveRight, flipX->reverse(), moveRight->reverse(), NULL));
     
-    //_pmPlayer->setPosition(rightPos);
-    //_pmPlayer->runAction(repeatActions);
+    _pmPlayer->setPosition(rightPos);
+    _pmPlayer->runAction(repeatActions);
     return true;
 }
 
