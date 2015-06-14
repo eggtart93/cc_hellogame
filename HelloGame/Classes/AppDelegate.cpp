@@ -38,9 +38,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if(!glview) {
         glview = GLViewImpl::create("My Game");
         director->setOpenGLView(glview);
-        //std::vector<std::string> searchPath;
-        //searchPath.push_back(RESOURCE_PATH);
-        //FileUtils::getInstance()->setSearchPaths(searchPath);
+        std::vector<std::string> searchPath;
+        searchPath.push_back(RESOURCE_PATH);
+        FileUtils::getInstance()->setSearchPaths(searchPath);
     }
 
     // turn on display FPS
