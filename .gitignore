@@ -5,7 +5,7 @@ Thumbs.db
 #######################
 # Ignore Cocos Engine #
 #######################
-*/cocos/*
+*/cocos2d/*
 #######################
 
 # Packages #
