@@ -123,6 +123,7 @@ project.xcworkspace
 *.suo
 *.tlb
 *.tlh
+*.tlog
 *.bak
 *.cache
 *.ilk
