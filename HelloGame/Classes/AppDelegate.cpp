@@ -1,13 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-#include "LayerController.h"
 
 USING_NS_CC;
-
-#define RESOURCE_PATH "../Resources"
-
-#define DESIGN_RES_WIDTH 540.f
-#define DESIGN_RES_HEIGHT 960.f
 
 AppDelegate::AppDelegate() {
 
@@ -42,15 +36,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if(!glview) {
         glview = GLViewImpl::create("My Game");
         director->setOpenGLView(glview);
-        glview->setFrameSize(DESIGN_RES_WIDTH, DESIGN_RES_HEIGHT);
-        glview->setDesignResolutionSize(DESIGN_RES_WIDTH,
-            DESIGN_RES_HEIGHT,
-            ResolutionPolicy::NO_BORDER);
+        
+        /* Set Screen Resolution */
+        //glview->setFrameSize(DESIGN_RES_WIDTH, DESIGN_RES_HEIGHT);
+        /* Set Design Resolution */
+        //glview->setDesignResolutionSize(540, 960, ResolutionPolicy::NO_BORDER);
 
+        /* Fix Resource Path Problem */
         std::vector<std::string> searchPath;
-        searchPath.push_back(RESOURCE_PATH);
+        searchPath.push_back("../Resources");
         FileUtils::getInstance()->setSearchPaths(searchPath);
-
+        
     }
 
     // turn on display FPS
@@ -62,8 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    //auto scene = HelloWorld::createScene();
-    auto scene = LayerController::createScene();
+    auto scene = HelloWorld::createScene();
 
     // run
     director->runWithScene(scene);

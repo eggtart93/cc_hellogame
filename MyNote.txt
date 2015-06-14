@@ -21,17 +21,31 @@ or
 
 
 
-#############
-# Using Git #
-#############
 
 # Clone Repo
 
+#############
 # Add
+#############
+git add [file]
 
+# stages new and modified, without deleted
+git add .
+
+# stages modified and deleted, without new
+git add -u
+
+# stages All, new, modified, deleted
+git add -A
+
+
+#############
 # Commit
+#############
 
+#############
 # Push
+#############
 
 # Checkout
 
