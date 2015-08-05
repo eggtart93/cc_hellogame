@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "Monster.h"
 
 class WorldLayer : public cocos2d::Layer
 {
@@ -18,8 +19,15 @@ class WorldLayer : public cocos2d::Layer
     };
 
     private:
+    void                        addEventListeners();
+    void                        checkBoundaries();
+    bool                        isWithinXBoundaries(cocos2d::Sprite* sprite);
+    bool                        isWithinYBoundaries(cocos2d::Sprite* sprite);
+    
+    private:
     cocos2d::Sprite*            _pmBg;
-    cocos2d::Sprite*            _pmPlayer;
+    Monster*                    _pmPlayer;
     //cocos2d::Sprite*            _pmObstacle;
     cocos2d::Sprite*            _pmCoin;
+    cocos2d::Vec2               _mGravity;
 };
