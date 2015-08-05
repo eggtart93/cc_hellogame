@@ -6,8 +6,8 @@ USING_NS_CC;
 
 #define RESOURCE_PATH "../Resources"
 
-#define DESIGN_RES_WIDTH 540.f
-#define DESIGN_RES_HEIGHT 960.f
+#define DESIGN_RES_WIDTH 480.f
+#define DESIGN_RES_HEIGHT 854.f
 
 AppDelegate::AppDelegate() {
 
